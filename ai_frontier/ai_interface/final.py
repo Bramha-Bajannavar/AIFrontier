@@ -39,15 +39,12 @@ llm = ChatGroq(
 # In[3]:
 
 
-response1=llm.invoke("Hi!! I'm Rahul")
-print(response1.content)
 
 
 # In[4]:
 
 
-response2=llm.invoke("Pretty well. How about You")
-print(response2.content)
+
 
 
 # ## Training
@@ -105,13 +102,13 @@ chain=prompt | llm
 # In[42]:
 
 
-response3=chain.invoke("what is API")
+
 
 
 # In[43]:
 
 
-print(response3.content)
+
 
 
 # In[4]:

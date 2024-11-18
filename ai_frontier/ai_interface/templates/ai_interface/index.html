@@ -1,144 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>AI Interface</title>
-   <style>
-       body {
-           display: flex;
-           flex-direction: column;
-           justify-content: center;
-           align-items: center;
-           height: 100vh;
-           margin: 0;
-           font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-           -webkit-font-smoothing: antialiased;
-           background: linear-gradient(135deg, #000000, #1c1c1c, #2c3e50);
-           text-align: center;
-       }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Interface</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        background: linear-gradient(135deg, #000000, #1c1c1c, #2c3e50);
+        text-align: center;
+      }
 
-       h1 {
-           font-size: 48px;
-           font-weight: 500;
-           letter-spacing: -0.5px;
-           background: linear-gradient(90deg, #ec4899, #a855f7);
-           -webkit-background-clip: text;
-           background-clip: text;
-           -webkit-text-fill-color: transparent;
-           margin-bottom: 4px;
-       }
+      h1 {
+        font-size: 48px;
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        background: linear-gradient(90deg, #ec4899, #a855f7);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 4px;
+      }
 
-       .subtext-container {
-           display: flex;
-           flex-direction: column;
-           gap: 2px;
-           margin-bottom: 32px;
-       }
+      .subtext-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 32px;
+      }
 
-       h2 {
-           font-size: 14px;
-           font-weight: 400;
-           letter-spacing: 0.5px;
-           color: #a1a1aa;
-           margin: 0;
-       }
+      h2 {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        color: #a1a1aa;
+        margin: 0;
+      }
 
-       p {
-           font-size: 14px;
-           font-weight: 500;
-           letter-spacing: 0.5px;
-           background: linear-gradient(90deg, #d4d4d8, #a1a1aa);
-           -webkit-background-clip: text;
-           background-clip: text;
-           -webkit-text-fill-color: transparent;
-           margin: 0;
-       }
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        background: linear-gradient(90deg, #d4d4d8, #a1a1aa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+      }
 
-       .button-container {
-           display: flex;
-           justify-content: center;
-           gap: 8px;
-       }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+      }
 
-       .button {
-           position: relative;
-           padding: 10px 20px;
-           font-size: 16px;
-           color: white;
-           text-decoration: none;
-           border-radius: 5px;
-           border: 1px solid rgba(255, 255, 255, 0.1);
-           overflow: hidden;
-           transition: all 0.3s ease;
-       }
+      .button {
+        position: relative;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
 
-       .button::before {
-           content: '';
-           position: absolute;
-           top: 0;
-           left: 0;
-           right: 0;
-           bottom: 0;
-           transition: all 0.3s ease;
-           z-index: -1;
-           border-radius: 5px;
-       }
+      .button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: all 0.3s ease;
+        z-index: -1;
+        border-radius: 5px;
+      }
 
-       .chat-button::before {
-           background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
-       }
+      .chat-button::before {
+        background: linear-gradient(
+          90deg,
+          rgba(59, 130, 246, 0.2),
+          rgba(99, 102, 241, 0.2)
+        );
+      }
 
-       .chat-button:hover::before {
-           background: linear-gradient(90deg, rgba(59, 130, 246, 1), rgba(99, 102, 241, 1));
-       }
+      .chat-button:hover::before {
+        background: linear-gradient(
+          90deg,
+          rgba(59, 130, 246, 1),
+          rgba(99, 102, 241, 1)
+        );
+      }
 
-       .github-button::before {
-           background: linear-gradient(90deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
-       }
+      .github-button::before {
+        background: linear-gradient(
+          90deg,
+          rgba(168, 85, 247, 0.2),
+          rgba(236, 72, 153, 0.2)
+        );
+      }
 
-       .github-button:hover::before {
-           background: linear-gradient(90deg, rgba(168, 85, 247, 1), rgba(236, 72, 153, 1));
-       }
+      .github-button:hover::before {
+        background: linear-gradient(
+          90deg,
+          rgba(168, 85, 247, 1),
+          rgba(236, 72, 153, 1)
+        );
+      }
 
-       .button span {
-           position: relative;
-           z-index: 1;
-       }
-   </style>
-</head>
-<body>
-   <h1 id="greeting"></h1>
-   <div class="subtext-container">
-       <h2 id="sub-greeting"></h2>
-       <p>Let's build smarter, faster, and better with Generative AI</p>
-   </div>
-   <div class="button-container">
-       <a href="{% url 'prompt_interface' %}" class="button chat-button">
-           <span>Chat</span>
-       </a>
-       <a href="https://github.com/Bramha-Bajannavar/AIFrontier" class="button github-button" target="_blank" rel="noopener noreferrer">
-           <span>Documentation</span>
-       </a>
-   </div>
+      .button span {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="greeting"></h1>
+    <div class="subtext-container">
+      <h2 id="sub-greeting"></h2>
+      <p>Let's build smarter, faster, and better with Generative AI</p>
+    </div>
+    <div class="button-container">
+      <a href="{% url 'prompt_interface' %}" class="button chat-button">
+        <span>Chat</span>
+      </a>
+      <a
+        href="https://github.com/Bramha-Bajannavar/AIFrontier"
+        class="button github-button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>Documentation</span>
+      </a>
+    </div>
 
-   <script>
-       function updateGreeting() {
-           const greetingElement = document.getElementById('greeting');
-           const subGreetingElement = document.getElementById('sub-greeting');
-           const now = new Date();
-           const hours = now.getHours();
+    <script>
+      function updateGreeting() {
+        const greetingElement = document.getElementById("greeting");
+        const subGreetingElement = document.getElementById("sub-greeting");
+        const now = new Date();
+        const hours = now.getHours();
 
-           if (hours < 12) {
-               greetingElement.textContent = "Good Morning, I'm Violet";
-               subGreetingElement.textContent = "your AI assistant for Gen AI development";
-           } else {
-               greetingElement.textContent = "Good Afternoon, I'm Violet";
-               subGreetingElement.textContent = "your AI assistant for Gen AI development";
-           }
-       }
+        if (hours < 12) {
+          greetingElement.textContent = "Good Morning, I'm Violet";
+          subGreetingElement.textContent =
+            "your AI assistant for Gen AI development";
+        } else {
+          greetingElement.textContent = "Good Afternoon, I'm Violet";
+          subGreetingElement.textContent =
+            "your AI assistant for Gen AI development";
+        }
+      }
 
-       updateGreeting();
-   </script>
-</body>
+      updateGreeting();
+    </script>
+  </body>
 </html>
