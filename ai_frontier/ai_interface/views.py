@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .final import get_response  # Import the function from the converted script
+from .violet import get_response  # Import the function from the new script
 
 def index(request):
     return render(request, 'ai_interface/index.html')
